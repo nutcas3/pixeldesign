@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import Logo from './Logo'
 
 const scrollToSection = (id: string, setIsMenuOpen?: (open: boolean) => void) => {
   const element = document.getElementById(id)
@@ -15,7 +16,7 @@ export default function Header() {
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       const target = e.target as Element
-      if (isMenuOpen && !target?.closest('.mobile-menu') && !target?.closest('.menu-button')) {
+      if (isMenuOpen && !target.closest('.mobile-menu') && !target.closest('.menu-button')) {
         setIsMenuOpen(false)
       }
     }
@@ -33,98 +34,130 @@ export default function Header() {
   }, [])
 
   return (
-    <header className="fixed w-full top-0 z-50 backdrop-blur-sm bg-background/80 shadow-soft transition-all">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <button 
-            onClick={() => scrollToSection('home')}
-            className="text-xl font-bold text-text-primary hover:text-primary transition-colors"
-          >
-            PixelDesign
-          </button>
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-text-secondary hover:bg-surface transition-colors"
-            aria-expanded={isMenuOpen}
-            aria-label="Toggle navigation menu"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              {isMenuOpen ? (
-                <path d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
-          <nav className="hidden md:flex items-center space-x-8">
-            <button
-              onClick={() => scrollToSection('home')}
-              className="text-text-secondary hover:text-primary transition-colors"
-            >
-              Home
-            </button>
-            <button
-              onClick={() => scrollToSection('projects')}
-              className="text-text-secondary hover:text-primary transition-colors"
-            >
-              Projects
-            </button>
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="text-text-secondary hover:text-primary transition-colors"
-            >
-              Contact
-            </button>
-            <button 
-              onClick={() => scrollToSection('contact')}
-              className="px-8 py-3 rounded-lg border-2 border-primary text-primary bg-black hover:bg-black-dark hover:text-white font-medium transition-colors"
-            >
-              Book a Call
-            </button>
-          </nav>
+    <header className="w-full bg-green-900 py-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="flex-shrink-0">
+          <a href="#" className="block">
+            <Logo size="medium" />
+          </a>
         </div>
 
-        {/* Mobile navigation */}
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="menu-button md:hidden p-2 rounded-lg text-white"
+          aria-expanded={isMenuOpen}
+          aria-label="Toggle navigation menu"
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            {isMenuOpen ? (
+              <path d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path d="M4 6h16M4 12h16M4 18h16" />
+            )}
+          </svg>
+        </button>
+
+        {/* Navigation Section 1 */}
+        <div className="hidden md:block">
+          <div className="bg-white rounded-full py-2 px-4 flex items-center space-x-4">
+            <div className="flex items-center space-x-1">
+              <div className="flex items-center px-4 py-2 hover:bg-gray-100 rounded-full">
+                <button
+                  onClick={() => scrollToSection('projects')}
+                  className="text-text-secondary hover:text-primary transition-colors focus:outline-none"
+                >
+                  Projects
+                </button>
+              </div>
+              <div className="flex items-center px-4 py-2 hover:bg-gray-100 rounded-full">
+                <button
+                  onClick={() => scrollToSection('projects')}
+                  className="text-text-secondary hover:text-primary transition-colors focus:outline-none"
+                >
+                  Projects
+                </button>
+              </div>
+              <div className="flex items-center px-4 py-2 hover:bg-gray-100 rounded-full">
+                <button
+                  onClick={() => scrollToSection('contact')}
+                  className="text-text-secondary hover:text-primary transition-colors focus:outline-none"
+                >
+                  Contact
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Navigation Section 2 */}
+        <div className="hidden md:block">
+          <div className="bg-white rounded-full py-2 px-4 flex items-center space-x-4">
+            <div className="flex items-center space-x-1">
+              <button
+                onClick={() => scrollToSection('contact')}
+                className="flex items-center px-4 py-2 hover:bg-gray-100 rounded-full cursor-pointer text-text-secondary hover:text-primary transition-colors focus:outline-none"
+              >
+                Book a Call
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
         <div
-          className={`md:hidden transition-all duration-300 ease-in-out ${
+          className={`mobile-menu md:hidden fixed inset-0 z-50 bg-white transition-all duration-300 ease-in-out ${
             isMenuOpen
-              ? 'max-h-64 opacity-100'
-              : 'max-h-0 opacity-0 pointer-events-none'
+              ? 'opacity-100 translate-x-0'
+              : 'opacity-0 translate-x-full pointer-events-none'
           }`}
         >
-          <nav className="py-4 space-y-2">
+          <div className="flex justify-end p-4">
             <button
-              onClick={() => scrollToSection('home', setIsMenuOpen)}
-              className="block w-full text-left px-4 py-2 text-text-secondary hover:bg-surface rounded-lg transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+              className="p-2 rounded-lg text-gray-600"
+              aria-label="Close menu"
             >
-              Home
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="M6 18L18 6M6 6l12 12" />
+              </svg>
             </button>
-            <button
-              onClick={() => scrollToSection('projects', setIsMenuOpen)}
-              className="block w-full text-left px-4 py-2 text-text-secondary hover:bg-surface rounded-lg transition-colors"
-            >
-              Projects
-            </button>
-            <button
-              onClick={() => scrollToSection('contact', setIsMenuOpen)}
-              className="block w-full text-left px-4 py-2 text-text-secondary hover:bg-surface rounded-lg transition-colors"
-            >
-              Contact
-            </button>
-            <button
-              onClick={() => scrollToSection('contact', setIsMenuOpen)}
-              className="block w-full text-left px-4 py-2 bg-accent-pink hover:bg-accent-pink/90 text-white font-medium rounded-lg transition-colors"
-            >
-              Book a Call
-            </button>
+          </div>
+
+          <nav className="p-4 space-y-4" aria-label="Mobile Navigation">
+            <div className="border-b pb-2">
+              <div className="font-medium mb-2">Main Menu</div>
+              <div className="pl-4 py-2 text-gray-700">Workshops &amp; Courses</div>
+              <div className="pl-4 py-2 text-gray-700">Private parties &amp; events</div>
+              <div className="pl-4 py-2 text-gray-700">Memberships &amp; Vouchers</div>
+            </div>
+
+            <div className="border-b pb-2">
+              <div className="font-medium mb-2">Locations</div>
+              <div className="pl-4 py-2 text-gray-700">PIE Studio Zurich</div>
+              <div className="pl-4 py-2 text-gray-700">PIE Studio Basel</div>
+            </div>
+
+            <div>
+              <div className="pl-4 py-2 text-gray-700">FAQ</div>
+              <div className="pl-4 py-2 text-gray-700">Language: EN</div>
+            </div>
           </nav>
         </div>
       </div>
