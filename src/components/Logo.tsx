@@ -3,7 +3,6 @@ interface LogoProps {
 }
 
 export default function Logo({ size = 'medium' }: LogoProps) {
-  // Size mapping
   const sizeClasses = {
     small: 'w-16 h-16',
     medium: 'w-24 h-24',

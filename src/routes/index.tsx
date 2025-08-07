@@ -22,7 +22,7 @@ function Home() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-green-900" role="main">
+    <div className="min-h-screen bg-[#F8F8F8]" role="main">
       <SEO
         title="Home"
         description="PixelDesign - Crafting digital experiences with stunning design and flawless functionality. We specialize in web design, UI/UX, and development services."
@@ -67,14 +67,8 @@ function Home() {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Link
-              to="/projects"
-              className="px-8 py-3 rounded-lg border-2 border-primary bg-black text-white hover:bg-primary hover:text-white font-medium transition-colors"
-            >
-              View Our Work
-            </Link>
-            <Link
               to="/contact"
-              className="px-8 py-3 rounded-lg border-2 border-primary text-primary hover:bg-primary hover:text-white font-medium transition-colors"
+              className="px-8 py-3 rounded-full border-2 border-primary bg-[#A5D6A7] text-text-primary  font-medium transition-colors"
             >
               Get in Touch
             </Link>

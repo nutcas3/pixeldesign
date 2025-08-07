@@ -42,7 +42,6 @@ export default function Header() {
           </a>
         </div>
 
-        {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="menu-button md:hidden p-2 rounded-lg text-white"
@@ -66,7 +65,6 @@ export default function Header() {
           </svg>
         </button>
 
-        {/* Navigation Section 1 */}
         <div className="hidden md:block">
           <div className="bg-[#A5D6A7] rounded-full py-2 px-4 flex items-center space-x-4">
             <div className="flex items-center space-x-1">
@@ -98,7 +96,7 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Navigation Section 2 */}
+  
         <div className="hidden md:block">
           <div className="bg-[#A5D6A7] rounded-full py-2 px-4 flex items-center space-x-4">
             <div className="flex items-center space-x-1">
