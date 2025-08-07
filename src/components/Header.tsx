@@ -34,7 +34,7 @@ export default function Header() {
   }, [])
 
   return (
-    <header className="w-full bg-green-900 py-4">
+    <header className="w-full bg-green-900 py-4 sticky top-0 z-40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         <div className="flex-shrink-0">
           <a href="#" className="block">

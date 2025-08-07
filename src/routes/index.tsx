@@ -15,7 +15,6 @@ export const Route = createFileRoute('/')({
 
 function Home() {
   useEffect(() => {
-    // Enable smooth scrolling behavior
     document.documentElement.style.scrollBehavior = 'smooth'
     return () => {
       document.documentElement.style.scrollBehavior = 'auto'
@@ -23,7 +22,7 @@ function Home() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-background" role="main">
+    <div className="min-h-screen bg-green-900" role="main">
       <SEO
         title="Home"
         description="PixelDesign - Crafting digital experiences with stunning design and flawless functionality. We specialize in web design, UI/UX, and development services."
@@ -98,7 +97,6 @@ function Home() {
         </motion.div>
       </section>
 
-      {/* Services Section */}
       <section id="services" className="py-20 px-6">
         <motion.div 
           initial={{ opacity: 0 }}
