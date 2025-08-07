@@ -1,6 +1,5 @@
 import type { Variants } from 'framer-motion'
 
-// Common animation variants for containers with staggered children
 export const containerVariants: Variants = {
   hidden: {
     opacity: 0

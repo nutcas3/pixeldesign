@@ -12,7 +12,7 @@ export default function Newsletter() {
     setStatus('submitting')
     
     try {
-      // Here you would integrate with your newsletter service (e.g., Mailchimp, ConvertKit)
+     
       await new Promise(resolve => setTimeout(resolve, 1000)) // Simulated API call
       setStatus('success')
       setEmail('')

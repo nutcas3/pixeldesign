@@ -114,7 +114,7 @@ function Home() {
             viewport={{ once: true }}
             className="text-4xl md:text-6xl font-bold text-text-primary mb-6"
           >
-            Get a Website That Works as Hard as You Do.
+            Our Services
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}

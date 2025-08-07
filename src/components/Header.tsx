@@ -85,7 +85,7 @@ export default function Header() {
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="px-8 py-3 rounded-lg border-2 border-primary text-primary hover:bg-primary hover:text-white font-medium transition-colors"
+              className="px-8 py-3 rounded-lg border-2 border-primary text-primary bg-black hover:bg-black-dark hover:text-white font-medium transition-colors"
             >
               Book a Call
             </button>

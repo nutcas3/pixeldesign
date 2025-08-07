@@ -1,6 +1,5 @@
 import { lazy } from 'react'
 
-// Utility function to handle lazy loading with proper typing
 export function lazyImport<
   T extends React.ComponentType<any>,
   I extends { [K2 in K]: T },
