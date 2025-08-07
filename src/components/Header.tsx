@@ -34,7 +34,7 @@ export default function Header() {
   }, [])
 
   return (
-    <header className="w-full bg-green-900 py-4 sticky top-0 z-40">
+    <header className="w-full bg-[#F8F8F8] py-4 sticky top-0 z-40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         <div className="flex-shrink-0">
           <a href="#" className="block">
@@ -68,7 +68,7 @@ export default function Header() {
 
         {/* Navigation Section 1 */}
         <div className="hidden md:block">
-          <div className="bg-white rounded-full py-2 px-4 flex items-center space-x-4">
+          <div className="bg-[#A5D6A7] rounded-full py-2 px-4 flex items-center space-x-4">
             <div className="flex items-center space-x-1">
               <div className="flex items-center px-4 py-2 hover:bg-gray-100 rounded-full">
                 <button
@@ -100,11 +100,11 @@ export default function Header() {
 
         {/* Navigation Section 2 */}
         <div className="hidden md:block">
-          <div className="bg-white rounded-full py-2 px-4 flex items-center space-x-4">
+          <div className="bg-[#A5D6A7] rounded-full py-2 px-4 flex items-center space-x-4">
             <div className="flex items-center space-x-1">
               <button
                 onClick={() => scrollToSection('contact')}
-                className="flex items-center px-4 py-2 hover:bg-gray-100 rounded-full cursor-pointer text-text-secondary hover:text-primary transition-colors focus:outline-none"
+                className="flex items-center px-4 py-2 rounded-full cursor-pointer text-text-secondary hover:text-primary transition-colors focus:outline-none"
               >
                 Book a Call
               </button>
